@@ -24,12 +24,12 @@ const LandingView = ({ navigation }) => {
 
                 {/* Button that indicates we have a user */}
                 <Button mode="contained" onPress={onUserPressed}>
-                    Je suis un utilisateur
+                    I am a user
                 </Button>
 
                 {/* Button that indicates we have a farmer */}
                 <Button mode="contained" onPress={onFarmerPressed}>
-                    Je suis un agriculteur
+                    I am a farmer
                 </Button>
 
             </View>

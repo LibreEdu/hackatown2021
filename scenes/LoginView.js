@@ -28,7 +28,7 @@ const LoginView = ({ navigation }) => {
     }
 
     return (
-        <Background style={styles.backgroundFormat}>
+        <Background>
             
             <BackButton goBack={navigation.goBack} />
             <TextInput
@@ -77,6 +77,7 @@ const styles = StyleSheet.create({
         width: '100%',
         alignItems: 'flex-end',
         marginBottom: 24,
+
     },
     row: {
         flexDirection: 'row',
@@ -89,9 +90,6 @@ const styles = StyleSheet.create({
     link: {
         fontWeight: 'bold',
         color: Theme.colors.primary,
-    },
-    backgroundFormat: {
-        backgroundColor: '#123',
     },
 })
 

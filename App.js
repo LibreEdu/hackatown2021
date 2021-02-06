@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { Theme } from './styles/Theme'
 import {
+  LoginRegisterChoiceView,
   LandingView,
   LoginView,
   RegisterView,
@@ -27,11 +28,12 @@ const App = () => {
     <Provider Theme={Theme}>
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="LandingView"
+          initialRouteName="LoginRegisterChoiceView"
           screenOptions={{
             headerShown: false,
           }}
         >
+          <Stack.Screen name="LoginRegisterChoiceView" component={LoginRegisterChoiceView} />
           <Stack.Screen name="LandingView" component={LandingView} />
           <Stack.Screen name="LoginView" component={LoginView} />
           <Stack.Screen name="RegisterView" component={RegisterView} />

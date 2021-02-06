@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { TouchableOpacity, StyleSheet, View } from 'react-native'
+import { View, StyleSheet, TouchableOpacity } from 'react-native'
 import { Text } from 'react-native-paper'
 import Background from '../components/Background'
 import Button from '../components/Button'
@@ -8,15 +8,19 @@ import BackButton from '../components/BackButton'
 import { Theme } from '../styles/Theme'
 import { emailValidator } from '../utils/emailValidator'
 import { passwordValidator } from '../utils/passwordValidator'
+import { nameValidator } from '../utils/nameValidator'
 
-const LoginView = ({ navigation }) => {
+const RegisterView = ({ navigation }) => {
+    const [name, setName] = useState({ value: '', error: '' })
     const [email, setEmail] = useState({ value: '', error: '' })
     const [password, setPassword] = useState({ value: '', error: '' })
 
-    const onLoginPressed = () => {
+    const onSignUpPressed = () => {
+        const nameError = nameValidator(name.value)
         const emailError = emailValidator(email.value)
         const passwordError = passwordValidator(password.value)
-        if (emailError || passwordError) {
+        if (emailError || passwordError || nameError) {
+            setName({ ...name, error: nameError })
             setEmail({ ...email, error: emailError })
             setPassword({ ...password, error: passwordError })
             return
@@ -30,6 +34,14 @@ const LoginView = ({ navigation }) => {
     return (
         <Background>
             <BackButton goBack={navigation.goBack} />
+            <TextInput
+                label="Name"
+                returnKeyType="next"
+                value={name.value}
+                onChangeText={(text) => setName({ value: text, error: '' })}
+                error={!!name.error}
+                errorText={name.error}
+            />
             <TextInput
                 label="Email"
                 returnKeyType="next"
@@ -51,20 +63,17 @@ const LoginView = ({ navigation }) => {
                 errorText={password.error}
                 secureTextEntry
             />
-            <View style={styles.forgotPassword}>
-                <TouchableOpacity
-                    onPress={() => navigation.navigate('ForgotPasswordView')}
-                >
-                    <Text style={styles.forgot}>Forgot your password?</Text>
-                </TouchableOpacity>
-            </View>
-            <Button mode="contained" onPress={onLoginPressed}>
-                Login
+            <Button
+                mode="contained"
+                onPress={onSignUpPressed}
+                style={{ marginTop: 24 }}
+            >
+                Sign Up
       </Button>
             <View style={styles.row}>
-                <Text>Don’t have an account? </Text>
-                <TouchableOpacity onPress={() => navigation.replace('RegisterView')}>
-                    <Text style={styles.link}>Sign up</Text>
+                <Text>Already have an account? </Text>
+                <TouchableOpacity onPress={() => navigation.replace('LoginView')}>
+                    <Text style={styles.link}>Login</Text>
                 </TouchableOpacity>
             </View>
         </Background>
@@ -72,18 +81,9 @@ const LoginView = ({ navigation }) => {
 }
 
 const styles = StyleSheet.create({
-    forgotPassword: {
-        width: '100%',
-        alignItems: 'flex-end',
-        marginBottom: 24,
-    },
     row: {
         flexDirection: 'row',
         marginTop: 4,
-    },
-    forgot: {
-        fontSize: 13,
-        color: Theme.colors.secondary,
     },
     link: {
         fontWeight: 'bold',
@@ -91,4 +91,4 @@ const styles = StyleSheet.create({
     },
 })
 
-export default LoginView
+export default RegisterView

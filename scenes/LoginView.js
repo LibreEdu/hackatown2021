@@ -23,7 +23,7 @@ const LoginView = ({ navigation }) => {
         }
         navigation.reset({
             index: 0,
-            routes: [{ name: 'Dashboard' }],
+            routes: [{ name: 'Test' }],
         })
     }
 
@@ -54,7 +54,7 @@ const LoginView = ({ navigation }) => {
             />
             <View style={styles.forgotPassword}>
                 <TouchableOpacity
-                    onPress={() => navigation.navigate('ForgotPasswordScreen')}
+                    onPress={() => navigation.navigate('ForgotPasswordView')}
                 >
                     <Text style={styles.forgot}>Forgot your password?</Text>
                 </TouchableOpacity>
@@ -64,7 +64,7 @@ const LoginView = ({ navigation }) => {
             </Button>
             <View style={styles.row}>
                 <Text>Don’t have an account? </Text>
-                <TouchableOpacity onPress={() => navigation.replace('RegisterScreen')}>
+                <TouchableOpacity onPress={() => navigation.replace('RegisterView')}>
                     <Text style={styles.link}>Sign up</Text>
                 </TouchableOpacity>
             </View>

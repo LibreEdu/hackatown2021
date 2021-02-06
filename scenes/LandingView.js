@@ -10,24 +10,36 @@ import { emailValidator } from '../utils/emailValidator'
 import { passwordValidator } from '../utils/passwordValidator'
 import { nameValidator } from '../utils/nameValidator'
 
-const LandingView = ({}) => {
+const LandingView = ({ navigation }) => {
+
+    //Constant created that makes user button pressed lead to next page and push current page on the stack
+    const onUserPressed = () => {
+        navigation.push('LandingView')
+        navigation.replace('RegisterView')
+    }
+
+    //Constant created that makes farmer button pressed lead to next page and push current page on the stack
+    const onFarmerPressed = () => {
+        navigation.push('LandingView')
+        navigation.replace('LoginView')
+    }
 
     return (
-
-        console.log("test"),
-
+        
         <View style={styles.container}>
 
             <View style={styles.secondContainer}>
 
-                <Button mode="contained" onPress={() => console.log("Je suis un utilisateur")}>
+                {/* Button that indicates we have a user */}
+                <Button mode="contained" onPress={onUserPressed}>
                     Je suis un utilisateur
                 </Button>
 
-                <Button mode="contained" onPress={() => console.log("Je suis un agriculteur")}>
+                {/* Button that indicates we have a farmer */}
+                <Button mode="contained" onPress={onFarmerPressed}>
                     Je suis un agriculteur
                 </Button>
-                
+
             </View>
             
         </View>
@@ -35,6 +47,8 @@ const LandingView = ({}) => {
 }
 
 const styles = StyleSheet.create({
+
+    //Styles for the main container (background)
     container: {
         flex: 1,
         backgroundColor: '#fff',
@@ -42,6 +56,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
 
     },
+    //Style for the container that has both buttons in it
     secondContainer: {
         flex: 1,
         marginRight: '30%',

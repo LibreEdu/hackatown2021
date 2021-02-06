@@ -28,7 +28,8 @@ const LoginView = ({ navigation }) => {
     }
 
     return (
-        <Background>
+        <Background style={styles.backgroundFormat}>
+            
             <BackButton goBack={navigation.goBack} />
             <TextInput
                 label="Email"
@@ -60,7 +61,7 @@ const LoginView = ({ navigation }) => {
             </View>
             <Button mode="contained" onPress={onLoginPressed}>
                 Login
-      </Button>
+            </Button>
             <View style={styles.row}>
                 <Text>Don’t have an account? </Text>
                 <TouchableOpacity onPress={() => navigation.replace('RegisterView')}>
@@ -88,6 +89,9 @@ const styles = StyleSheet.create({
     link: {
         fontWeight: 'bold',
         color: Theme.colors.primary,
+    },
+    backgroundFormat: {
+        backgroundColor: '#123',
     },
 })
 

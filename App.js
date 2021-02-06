@@ -10,6 +10,21 @@ import {
   Test,
 } from './scenes'
 
+import * as firebase from 'firebase'
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDKM9TVFl02vuF4gh1V5VA9JjIIe4FjuCE",
+  authDomain: "hackatown2021-9b5fb.firebaseapp.com",
+  projectId: "hackatown2021-9b5fb",
+  storageBucket: "hackatown2021-9b5fb.appspot.com",
+  messagingSenderId: "923045340255",
+  appId: "1:923045340255:web:0a707deb29958e705327ea"
+};
+
+if (firebase.apps.length === 0) {
+  firebase.initializeApp(firebaseConfig)
+}
+
 const Stack = createStackNavigator()
 
 const App = () => {

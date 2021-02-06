@@ -8,6 +8,7 @@ import BackButton from '../components/BackButton'
 import { Theme } from '../styles/Theme'
 import { emailValidator } from '../utils/emailValidator'
 import { passwordValidator } from '../utils/passwordValidator'
+import firebase from 'firebase'
 
 const LoginView = ({ navigation }) => {
     const [email, setEmail] = useState({ value: '', error: '' })
@@ -21,10 +22,20 @@ const LoginView = ({ navigation }) => {
             setPassword({ ...password, error: passwordError })
             return
         }
-        navigation.reset({
-            index: 0,
-            routes: [{ name: 'Test' }],
-        })
+        firebase.auth().signInWithEmailAndPassword(email.value, password.value)
+            .then((result) => {
+                console.log(result)
+            })
+            .catch((error) => {
+                switch (error.code) {
+                    case 'auth/wrong-password':
+                        setPassword({ ...password, error: "Wrong password" })
+                        break;
+                    case 'auth/user-not-found':
+                        setEmail({ ...email, error: "You're not registered" })
+                        break;
+                }
+            })
     }
 
     return (

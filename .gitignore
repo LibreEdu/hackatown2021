@@ -4,7 +4,7 @@ node_modules
 # Mac Users
 .DS_Store
 
-.expo/
+.expo
 .expo/packager-info.json
 package-lock.json
 yarn.lock

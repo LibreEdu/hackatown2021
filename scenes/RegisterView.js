@@ -9,6 +9,8 @@ import { Theme } from '../styles/Theme'
 import { emailValidator } from '../utils/emailValidator'
 import { passwordValidator } from '../utils/passwordValidator'
 import { nameValidator } from '../utils/nameValidator'
+import firebase from 'firebase'
+import { Alert } from 'react-native';
 
 const RegisterView = ({ navigation }) => {
     const [name, setName] = useState({ value: '', error: '' })
@@ -25,10 +27,17 @@ const RegisterView = ({ navigation }) => {
             setPassword({ ...password, error: passwordError })
             return
         }
-        navigation.reset({
-            index: 0,
-            routes: [{ name: 'Test' }],
-        })
+        firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
+            .then((result) => {
+                console.log(result)
+            })
+            .catch((error) => {
+                switch (error.code) {
+                    case 'auth/email-already-in-use':
+                        setEmail({ ...email, error: "Email already in use" })
+                        break;
+                }
+            })
     }
 
     return (

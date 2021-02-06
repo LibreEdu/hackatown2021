@@ -11,8 +11,6 @@ import {
   Test,
 } from './scenes'
 
-
-
 const firebaseConfig = {
   apiKey: "AIzaSyDKM9TVFl02vuF4gh1V5VA9JjIIe4FjuCE",
   authDomain: "hackatown2021-9b5fb.firebaseapp.com",
@@ -21,7 +19,6 @@ const firebaseConfig = {
   messagingSenderId: "923045340255",
   appId: "1:923045340255:web:0a707deb29958e705327ea"
 };
-
 
 const Stack = createStackNavigator()
 

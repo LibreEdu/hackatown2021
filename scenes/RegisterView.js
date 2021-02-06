@@ -9,7 +9,6 @@ import { Theme } from '../styles/Theme'
 import { emailValidator } from '../utils/emailValidator'
 import { passwordValidator } from '../utils/passwordValidator'
 import { nameValidator } from '../utils/nameValidator'
-import firebase from 'firebase'
 import { Alert } from 'react-native';
 
 const RegisterView = ({ navigation }) => {

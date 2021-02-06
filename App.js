@@ -4,13 +4,14 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { Theme } from './styles/Theme'
 import {
+  LandingView,
   LoginView,
   RegisterView,
   ForgotPasswordView,
   Test,
 } from './scenes'
 
-import * as firebase from 'firebase'
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyDKM9TVFl02vuF4gh1V5VA9JjIIe4FjuCE",
@@ -21,9 +22,6 @@ const firebaseConfig = {
   appId: "1:923045340255:web:0a707deb29958e705327ea"
 };
 
-if (firebase.apps.length === 0) {
-  firebase.initializeApp(firebaseConfig)
-}
 
 const Stack = createStackNavigator()
 
@@ -32,11 +30,12 @@ const App = () => {
     <Provider Theme={Theme}>
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="LoginView"
+          initialRouteName="LandingView"
           screenOptions={{
             headerShown: false,
           }}
         >
+          <Stack.Screen name="LandingView" component={LandingView} />
           <Stack.Screen name="LoginView" component={LoginView} />
           <Stack.Screen name="RegisterView" component={RegisterView} />
           <Stack.Screen name="ForgotPasswordView" component={ForgotPasswordView} />

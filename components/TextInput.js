@@ -25,16 +25,16 @@ const styles = StyleSheet.create({
         marginVertical: 12,
     },
     input: {
-        backgroundColor: theme.colors.surface,
+        backgroundColor: Theme.colors.surface,
     },
     description: {
         fontSize: 13,
-        color: theme.colors.secondary,
+        color: Theme.colors.secondary,
         paddingTop: 8,
     },
     error: {
         fontSize: 13,
-        color: theme.colors.error,
+        color: Theme.colors.error,
         paddingTop: 8,
     },
 })

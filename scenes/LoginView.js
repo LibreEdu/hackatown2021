@@ -28,8 +28,7 @@ const LoginView = ({ navigation }) => {
     }
 
     return (
-        <Background style={styles.backgroundFormat}>
-            
+        <Background>
             <BackButton goBack={navigation.goBack} />
             <TextInput
                 label="Email"
@@ -89,9 +88,6 @@ const styles = StyleSheet.create({
     link: {
         fontWeight: 'bold',
         color: Theme.colors.primary,
-    },
-    backgroundFormat: {
-        backgroundColor: '#123',
     },
 })
 

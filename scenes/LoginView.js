@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { TouchableOpacity, StyleSheet, View } from 'react-native'
 import { Text } from 'react-native-paper'
 import Background from '../components/Background'
+import Logo from '../components/Logo'
 import Button from '../components/Button'
 import TextInput from '../components/TextInput'
 import BackButton from '../components/BackButton'
@@ -41,6 +42,7 @@ const LoginView = ({ navigation }) => {
     return (
         <Background>
             <BackButton goBack={navigation.goBack} />
+            <Logo />
             <TextInput
                 label="Email"
                 returnKeyType="next"

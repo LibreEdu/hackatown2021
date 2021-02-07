@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Background from '../components/Background'
 import BackButton from '../components/BackButton'
+import Logo from '../components/Logo'
 import TextInput from '../components/TextInput'
 import Button from '../components/Button'
 import { emailValidator } from '../utils/emailValidator'
@@ -20,6 +21,7 @@ const ForgotPasswordView = ({ navigation }) => {
     return (
         <Background>
             <BackButton goBack={navigation.goBack} />
+            <Logo />
             <TextInput
                 label="E-mail address"
                 returnKeyType="done"

@@ -5,6 +5,7 @@ import Button from '../components/Button'
 import firebase from 'firebase'
 
 const LandingView = ({ navigation }) => {
+    
     // Constant created that makes user button pressed lead to next page and push current page on the stack
     const onUserPressed = () => {
         navigation.navigate('RegisterView', { values: ['buyer'] })

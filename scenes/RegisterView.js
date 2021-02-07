@@ -12,6 +12,8 @@ import { passwordValidator } from '../utils/passwordValidator'
 import { nameValidator } from '../utils/nameValidator'
 import { Alert } from 'react-native';
 
+import firebase from 'firebase'
+
 const RegisterView = ({ navigation }) => {
     const [name, setName] = useState({ value: '', error: '' })
     const [email, setEmail] = useState({ value: '', error: '' })

@@ -5,6 +5,7 @@ import Background from '../components/Background'
 import Button from '../components/Button'
 import TextInput from '../components/TextInput'
 import BackButton from '../components/BackButton'
+import Logo from '../components/Logo'
 import { Theme } from '../styles/Theme'
 import { emailValidator } from '../utils/emailValidator'
 import { passwordValidator } from '../utils/passwordValidator'
@@ -28,6 +29,12 @@ const RegisterView = ({ navigation }) => {
         }
         firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
             .then((result) => {
+                firebase.firestore().collection("users")
+                    .doc(firebase.auth().currentUser.uid)
+                    .set({
+                        name,
+                        email
+                    })
                 console.log(result)
             })
             .catch((error) => {
@@ -42,6 +49,7 @@ const RegisterView = ({ navigation }) => {
     return (
         <Background>
             <BackButton goBack={navigation.goBack} />
+            <Logo />
             <TextInput
                 label="Name"
                 returnKeyType="next"

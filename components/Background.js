@@ -8,7 +8,7 @@ const Background = ({ children }) => (
         resizeMode="repeat"
         style={styles.background}
     >
-        <KeyboardAvoidingView style={styles.container} behavior="padding">
+        <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={styles.container}>
             {children}
         </KeyboardAvoidingView>
     </ImageBackground>

@@ -9,7 +9,7 @@ import BackButton from '../components/BackButton'
 import { Theme } from '../styles/Theme'
 import { emailValidator } from '../utils/emailValidator'
 import { passwordValidator } from '../utils/passwordValidator'
-import firebase from 'firebase'
+
 
 const LoginView = ({ navigation }) => {
     const [email, setEmail] = useState({ value: '', error: '' })

@@ -15,6 +15,9 @@ import {
 import MainView from './scenes/user_view/MainView'
 import ProfileView from './scenes/user_view/ProfileView'
 
+import MainFarmerView from './scenes/farmer_view/MainFarmerView'
+import AccountView from './scenes/farmer_view/AccountView'
+
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 
@@ -99,9 +102,11 @@ export class App extends Component {
     return (
       <Provider store={store}>
         <NavigationContainer>
-          <Stack.Navigator initialRouteName="MainView" screenOptions={{ headerShown: false }}>
+          <Stack.Navigator initialRouteName="MainFarmerView" screenOptions={{ headerShown: false }}>
             <Stack.Screen name="MainView" component={MainView} />
             <Stack.Screen name="ProfileView" component={ProfileView} navigation={this.props.navigation} />
+            <Stack.Screen name="MainFarmerView" component={MainFarmerView} />
+            <Stack.Screen name="AccountView" component={AccountView} navigation={this.props.navigation} />
           </Stack.Navigator>
         </NavigationContainer>
       </Provider>

@@ -1,5 +1,11 @@
-import { USER_STATE_CHANGE } from '../constants/index'
+import { USER_STATE_CHANGE, CLEAR_DATA } from '../constants/index'
 import firebase from 'firebase'
+
+export function clearData() {
+    return ((dispatch) => {
+        dispatch({ type: CLEAR_DATA })
+    })
+}
 
 export function fetchUser() {
     return ((dispatch) => {

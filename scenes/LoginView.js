@@ -16,6 +16,7 @@ const LoginView = ({ navigation }) => {
     const [email, setEmail] = useState({ value: '', error: '' })
     const [password, setPassword] = useState({ value: '', error: '' })
     const [user_type, setType] = useState({ value: '' })
+    const [user, setUser] = useState(null);
 
     const onLoginPressed = () => {
         const emailError = emailValidator(email.value)
@@ -31,8 +32,9 @@ const LoginView = ({ navigation }) => {
                     .then((data) => { console.log("data:", data) })
                     .catch((error) => { console.log("error:", error) })
 
-                setType({ value: test.data() });
-                console.log(user_type.value)
+                setUser(test.data());
+                console.log(user)
+                console.log("test")
             })
             .catch((error) => {
                 switch (error.code) {

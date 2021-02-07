@@ -10,14 +10,14 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
-import StoreListView from './StoreListView'
-import ProfileView from './ProfileView'
-import SearchView from './SearchView'
+import AccountView from './AccountView'
+import NewItemOrder from './NewItemOrder'
 import OrdersView from './OrdersView'
+import ShopOverviewView from './ShopOverviewView'
 
 const Tab = createBottomTabNavigator();
 
-export class MainView extends Component {
+export class MainFarmerView extends Component {
     componentDidMount() {
         this.props.fetchUser();
     }
@@ -25,13 +25,13 @@ export class MainView extends Component {
     render() {
         return (
             <Tab.Navigator>
-                <Tab.Screen name="Home" component={StoreListView}
+                <Tab.Screen name="My Shop" component={ShopOverviewView}
                     options={{
                         tabBarIcon: ({ color, size }) => (
                             <MaterialCommunityIcons name="home" color={color} size={26} />
                         ),
                     }} />
-                <Tab.Screen name="Search" component={SearchView}
+                <Tab.Screen name="Items" component={NewItemOrder}
                     options={{
                         tabBarIcon: ({ color, size }) => (
                             <MaterialCommunityIcons name="magnify" color={color} size={26} />
@@ -43,7 +43,7 @@ export class MainView extends Component {
                             <MaterialCommunityIcons name="archive" color={color} size={26} />
                         ),
                     }} />
-                <Tab.Screen name="Profile" component={ProfileView} navigation={this.props.navigation}
+                <Tab.Screen name="Profile" component={AccountView}
                     options={{
                         tabBarIcon: ({ color, size }) => (
                             <MaterialCommunityIcons name="account" color={color} size={26} />
@@ -59,4 +59,4 @@ const mapStateToProps = (store) => ({
 })
 const mapDispatchProps = (dispatch) => bindActionCreators({ fetchUser }, dispatch);
 
-export default connect(mapStateToProps, mapDispatchProps)(MainView)
+export default connect(mapStateToProps, mapDispatchProps)(MainFarmerView)

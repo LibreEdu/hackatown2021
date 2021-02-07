@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
-import { View, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, StyleSheet, ImageBackground, Image } from 'react-native'
 import Background from '../../components/Background'
 import ItemOrder from '../../components/farmer_components/ItemOrder'
+import TextInput from '../../components/TextInput'
+import Button from '../../components/Button'
 
-const AcccountView = ({ navigation }) => {
+function AcccountView(props) {
 
     /* get from data base */
     const [FirstName, setFirstName] = useState({ value: '', error: '' })
@@ -13,12 +15,16 @@ const AcccountView = ({ navigation }) => {
 
 
     return (
-        <Background>
+        <ImageBackground
+            source={require('../../assets/background_dot.png')}
+            resizeMode="repeat"
+            style={styles.container}
+        >
             <View style={styles.container}>
                 <View style={{ marginTop: 64, alignItems: "center", }}>
                     <Image
                         style={styles.image_icon}
-                        source={require("../../assets/profile.png")}
+                        source={require('../../assets/profile.png')}
                     />
                 </View>
                 <View style={{ marginTop: 30, alignItems: "center", width: "80%" }}>
@@ -56,7 +62,7 @@ const AcccountView = ({ navigation }) => {
                 </View>
             </View>
 
-        </Background>
+        </ImageBackground>
     )
 
 }
@@ -65,7 +71,8 @@ const AcccountView = ({ navigation }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: "center"
+        alignItems: "center",
+        width: '100%'
     },
     image_icon: {
         width: 136,

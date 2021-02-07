@@ -43,7 +43,7 @@ export class MainFarmerView extends Component {
                             <MaterialCommunityIcons name="archive" color={color} size={26} />
                         ),
                     }} />
-                <Tab.Screen name="Profile" component={AccountView}
+                <Tab.Screen name="Test" component={AccountView}
                     options={{
                         tabBarIcon: ({ color, size }) => (
                             <MaterialCommunityIcons name="account" color={color} size={26} />

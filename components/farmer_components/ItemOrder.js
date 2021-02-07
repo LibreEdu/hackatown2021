@@ -25,9 +25,7 @@ class ItemOrder extends React.Component {
                     </View>
                 </View>
                 <View style={styles.button}>
-                    <ImageBackground source={require('../../assets/arrow_back.png')} resizeMode="cover" style={{ width: "80%" }}>
-                        <Button />
-                    </ImageBackground>
+                    <Image source={require('../../assets/test.png')} style={styles.image} />
                 </View>
 
             </View>
@@ -50,9 +48,10 @@ const styles = StyleSheet.create({
         overflow: 'hidden',
         backgroundColor: "rgba(255,255,255, 0.5)"
     },
-    button: {
-        width: 120,
-        height: 180,
+    image: {
+        width: 60,
+        height: 60,
+        borderRadius: 68,
         marginTop: 5,
         marginRight: 5,
         borderWidth: 1,

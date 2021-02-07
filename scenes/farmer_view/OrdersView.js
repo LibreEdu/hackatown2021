@@ -20,22 +20,20 @@ const OrdersView = ({ navigation }) => {
 
 
     return (
-        <Background>
-            <View style={styles.container}>
-                <ScrollView>
-                    <View style={{ marginTop: 60 }}>
-                        {orders.map((orderData) => {
-                            return (
-                                <View>
-                                    <ItemOrder order={orderData} />
-                                </View>
-                            )
+        <View style={styles.container}>
+            <ScrollView>
+                <View style={{ marginTop: 60 }}>
+                    {orders.map((orderData) => {
+                        return (
+                            <View>
+                                <ItemOrder order={orderData} />
+                            </View>
+                        )
 
-                        })}
-                    </View>
-                </ScrollView>
-            </View>
-        </Background>
+                    })}
+                </View>
+            </ScrollView>
+        </View>
 
     )
 }

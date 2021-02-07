@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { TouchableOpacity, StyleSheet, View } from 'react-native'
+import { TouchableOpacity, StyleSheet, View, Systrace } from 'react-native'
 import { Text } from 'react-native-paper'
 import Background from '../components/Background'
 import Logo from '../components/Logo'
@@ -15,6 +15,7 @@ import firebase from 'firebase'
 const LoginView = ({ navigation }) => {
     const [email, setEmail] = useState({ value: '', error: '' })
     const [password, setPassword] = useState({ value: '', error: '' })
+    const [user_type, setType] = useState({ value: '' })
 
     const onLoginPressed = () => {
         const emailError = emailValidator(email.value)
@@ -26,7 +27,12 @@ const LoginView = ({ navigation }) => {
         }
         firebase.auth().signInWithEmailAndPassword(email.value, password.value)
             .then((result) => {
-                console.log(result)
+                const test = firebase.firestore().collection('users_type').doc(result.user.uid).get()
+                    .then((data) => { console.log("data:", data) })
+                    .catch((error) => { console.log("error:", error) })
+
+                setType({ value: test.data() });
+                console.log(user_type.value)
             })
             .catch((error) => {
                 switch (error.code) {
@@ -77,7 +83,7 @@ const LoginView = ({ navigation }) => {
             </Button>
             <View style={styles.row}>
                 <Text>Don’t have an account? </Text>
-                <TouchableOpacity onPress={() => navigation.replace('RegisterView')}>
+                <TouchableOpacity onPress={() => navigation.replace('LandingView')}>
                     <Text style={styles.link}>Sign up</Text>
                 </TouchableOpacity>
             </View>

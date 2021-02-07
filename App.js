@@ -9,6 +9,7 @@ import {
   LoginView,
   RegisterView,
   ForgotPasswordView,
+  LandingView,
   Test,
 } from './scenes'
 import MainView from './scenes/user_view/MainView'
@@ -87,6 +88,7 @@ export class App extends Component {
           >
             <Stack.Screen name="LoginView" component={LoginView} />
             <Stack.Screen name="RegisterView" component={RegisterView} />
+            <Stack.Screen name="LandingView" component={LandingView} />
             <Stack.Screen name="ForgotPasswordView" component={ForgotPasswordView} />
             <Stack.Screen name="Test" component={Test} />
           </Stack.Navigator>

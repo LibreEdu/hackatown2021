@@ -19,7 +19,6 @@ const RegisterView = ({ navigation, route }) => {
     const [password, setPassword] = useState({ value: '', error: '' })
     const user_type = route.params.values[0]
 
-    console.log(user_type)
     const onSignUpPressed = () => {
         const nameError = nameValidator(name.value)
         const emailError = emailValidator(email.value)

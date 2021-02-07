@@ -10,15 +10,16 @@ import { Theme } from '../styles/Theme'
 import { emailValidator } from '../utils/emailValidator'
 import { passwordValidator } from '../utils/passwordValidator'
 import { nameValidator } from '../utils/nameValidator'
-import { Alert } from 'react-native';
 
 import firebase from 'firebase'
 
-const RegisterView = ({ navigation }) => {
+const RegisterView = ({ navigation, route }) => {
     const [name, setName] = useState({ value: '', error: '' })
     const [email, setEmail] = useState({ value: '', error: '' })
     const [password, setPassword] = useState({ value: '', error: '' })
+    const user_type = route.params.values[0]
 
+    console.log(user_type)
     const onSignUpPressed = () => {
         const nameError = nameValidator(name.value)
         const emailError = emailValidator(email.value)
@@ -35,9 +36,9 @@ const RegisterView = ({ navigation }) => {
                     .doc(firebase.auth().currentUser.uid)
                     .set({
                         name,
+                        user_type,
                         email
                     })
-                console.log(result)
             })
             .catch((error) => {
                 switch (error.code) {
@@ -87,7 +88,7 @@ const RegisterView = ({ navigation }) => {
                 style={{ marginTop: 24 }}
             >
                 Sign Up
-      </Button>
+            </Button>
             <View style={styles.row}>
                 <Text>Already have an account? </Text>
                 <TouchableOpacity onPress={() => navigation.replace('LoginView')}>

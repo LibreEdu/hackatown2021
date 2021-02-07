@@ -42,7 +42,6 @@ const LoginView = ({ navigation }) => {
 
     return (
         <Background>
-            <BackButton goBack={navigation.goBack} />
             <Logo />
             <TextInput
                 label="Email"
